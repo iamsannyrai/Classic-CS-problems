@@ -1,0 +1,17 @@
+# Uses memoization technique by using python dictionary
+
+from typing import Dict
+
+# Base case
+memo: Dict[int, int] = {0: 0, 1: 1}
+
+
+def fib(n: int) -> int:
+    if n not in memo:
+        # recursive call to fib() and store result in dictionary
+        memo[n] = fib(n-1) + fib(n-2) 
+    return memo[n]
+
+
+if __name__ == "__main__":
+    print(fib(4))
